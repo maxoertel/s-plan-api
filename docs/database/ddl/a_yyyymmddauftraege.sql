@@ -1,0 +1,2 @@
+ALTER TABLE a_20260602auftraege
+ADD COLUMN instrackgestartetdatumzeit timestamp;

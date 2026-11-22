@@ -1,0 +1,37 @@
+package de.sauter_gmbh.s_plan_api.delivery_notes_domain.model
+
+import de.sauter_gmbh.s_plan_api.domain_identity.VehicleId
+
+data class DeliveryNote(
+  val id: DeliveryNoteId,
+  val factoryNr: Long,
+  val date: String,
+  val time: String,
+  val deliveryNoteNr: Int,
+  val deliveryNoteNrExternal: Int?,
+  val deliveryNoteCircle: Int?,
+  val printType: String?,
+  val orderType: Int?,
+  val deliveryDateTime: String?,
+  val orderNr: Int?,
+  val loadNr: Int?,
+  val batchNr: Int?,
+  val plannedQuantity: Double?,
+  val actualQuantity: Double?,
+  val loadQuantity: Double?,
+  val returnQuantity: Double?,
+  val customer: Customer,
+  val site: Site,
+  val vehicleId: VehicleId?,
+  val recipe: String?,
+  val articleNr: String?,
+  val description: String?,
+  val status: Status,
+  val signature: Signature,
+  val createdAt: String?,
+  val updatedAt: String?,
+  val waterCorrectionUnloading: Float? = null,
+  val superPlasticizerUnloading: Float? = null,
+  val waitingTimeMinutes: Float? = null,
+  val driverAcceptedAt: Long? = null,
+)

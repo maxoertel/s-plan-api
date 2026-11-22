@@ -1,0 +1,20 @@
+CREATE TABLE sauter_strack_benutzer (
+    benutzer TEXT PRIMARY KEY,
+
+    anrede TEXT,
+    titel TEXT,
+    vorname TEXT,
+    nachname TEXT,
+
+    authentifizierungstyp TEXT NOT NULL,
+    authentifizierungsbenutzer TEXT NOT NULL,
+
+    erstellungdatumzeit TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    erstellungsbediener TEXT NOT NULL,
+
+    letzteaenderungdatumzeit TIMESTAMPTZ,
+    letzteaenderungbediener TEXT
+);
+
+CREATE UNIQUE INDEX ux_benutzer_authentifizierungsdaten
+ON sauter_strack_benutzer (authentifizierungstyp, authentifizierungsbenutzer);

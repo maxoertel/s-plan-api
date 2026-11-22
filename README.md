@@ -1,2 +1,2 @@
 # s-plan-api
-Disposition System – Web
+Disposition System – API

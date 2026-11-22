@@ -1,0 +1,36 @@
+-- auto-generated definition
+create table sonder
+(
+    nummer                                    varchar not null
+        constraint p_sonder
+            primary key,
+    bezeichnung                               varchar,
+    mindermenge                               boolean,
+    mitwert                                   boolean,
+    sonderleistungdispoverrechnungsart        integer,
+    sonderleistungdispoverrechnungsmenge      double precision,
+    sonderleistungfakturierungverrechnungsart integer,
+    einheit                                   smallint,
+    einheitbez                                varchar,
+    artikelnummer                             varchar,
+    artikelnrextern1                          varchar,
+    artikelnummer2                            varchar,
+    artikelnummer3                            varchar,
+    sonderleistungbetonpumpe                  boolean,
+    benornichtakzeptiert                      boolean,
+    sonderleistungfuerapps                    varchar,
+    sonderleistungsksuebergeben               bigint,
+    sonderleistungerstellungdatumzeit         timestamp,
+    sonderleistungerstellungbediener          varchar,
+    sonderleistungletzteaenderungdatumzeit    timestamp,
+    sonderleistungletzteaenderungbediener     varchar,
+    mindermengevon                            double precision,
+    mindermengebis                            double precision
+);
+
+alter table sonder
+    owner to postgres;
+
+create index sonder_ibeznu
+    on sonder (bezeichnung, nummer);
+

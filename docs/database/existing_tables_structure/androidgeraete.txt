@@ -1,0 +1,46 @@
+-- auto-generated definition
+create table androidgeraete
+(
+    androidgeraeteortungsid                varchar not null,
+    appid                                  integer not null,
+    appversion                             varchar,
+    model                                  varchar,
+    telefonnr                              varchar,
+    personalnr                             integer,
+    nachname                               varchar,
+    vorname                                varchar,
+    freigegeben                            boolean,
+    openroutserviceapikey                  varchar,
+    openroutserviceemailadresse            varchar,
+    openroutservicepasswort                varchar,
+    cloudmessagingtoken                    varchar,
+    zugriffeimjanuar                       integer,
+    zugriffeimfebruar                      integer,
+    zugriffeimmaerz                        integer,
+    zugriffeimapril                        integer,
+    zugriffeimmai                          integer,
+    zugriffeimjuni                         integer,
+    zugriffeimjuli                         integer,
+    zugriffeimaugust                       integer,
+    zugriffeimseptember                    integer,
+    zugriffeimoktober                      integer,
+    zugriffeimnovember                     integer,
+    zugriffeimdezember                     integer,
+    letzterappzugriff                      timestamp,
+    letzteposition                         varchar,
+    androidgeraeteerstellungdatumzeit      timestamp,
+    androidgeraeteerstellungbediener       varchar,
+    androidgeraeteletzteaenderungdatumzeit timestamp,
+    androidgeraeteletzteaenderungbediener  varchar,
+    apikeyhash                             varchar,
+    apikeyerstellungdatumzeit              timestamp,
+    einmalcodehash                         varchar,
+    einmalcodeerstellungdatumzeit          timestamp,
+    einmalcodegueltigbisdatumzeit          timestamp,
+    constraint p_androidgeraete
+        primary key (androidgeraeteortungsid, appid)
+);
+
+alter table androidgeraete
+    owner to postgres;
+

@@ -1,0 +1,21 @@
+CREATE TABLE sauter_strack_warteschlange
+(
+    kennung                  BIGINT                  NOT NULL PRIMARY KEY,
+    typ                      TEXT                    NOT NULL,
+    nutzdaten                JSONB                   NOT NULL,
+    versuche                 integer default 0       not null,
+    fehlermeldung            text,
+    erstellungdatumzeit      TIMESTAMP DEFAULT now() NOT NULL,
+    erstellungsbediener      TEXT                    NOT NULL,
+    letzteaenderungdatumzeit TIMESTAMP,
+    letzteaenderungbediener  TEXT
+);
+
+alter table sauter_strack_warteschlange
+    owner to postgres;
+
+create index ix_warteschlange_typ
+    on sauter_strack_warteschlange (typ);
+
+create index ix_warteschlange_erstellungdatumzeit
+    on sauter_strack_warteschlange (erstellungdatumzeit);

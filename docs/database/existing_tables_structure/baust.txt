@@ -1,0 +1,116 @@
+-- auto-generated definition
+create table baust
+(
+    kundennr                           bigint not null,
+    baustnr                            bigint not null,
+    haendlernr                         bigint,
+    baustellenzone                     integer,
+    fahrzeitvorgabenummer              integer,
+    bezeichnung1                       varchar,
+    bezeichnung2                       varchar,
+    bezeichnung3                       varchar,
+    bezeichnung4                       varchar,
+    matchcode                          varchar,
+    strasse                            varchar,
+    hausnummer                         varchar,
+    land                               varchar,
+    plz                                varchar,
+    ort                                varchar,
+    telefon                            varchar,
+    fax                                varchar,
+    mobil                              varchar,
+    ansprechpartner                    varchar,
+    bemerkung                          varchar,
+    mindermenge                        double precision,
+    entladeart                         smallint,
+    entladedauervorgabenummer          integer,
+    baustelleentladedauer              timestamp,
+    baustelleentladedauermenge         double precision,
+    baustellelieferrhythmus            timestamp,
+    baustellerhythmusmenge             double precision,
+    auftraglieferleistungmenge         double precision,
+    auftraglieferleistungdauer         timestamp,
+    baustellemaxfahrzeuglademenge      double precision,
+    baustellefahrzeugfuhrparkgruppennr integer,
+    druckdatenaktiv                    boolean,
+    sollwertdrucken                    boolean,
+    istwertdrucken                     boolean,
+    ztvkausdruck                       boolean,
+    rezeptwertedrucken                 boolean,
+    werksanschriftdrucken              boolean,
+    wasserkorrekturdrucken             boolean,
+    feuchteausdruck                    boolean,
+    herstsollwertedrucken              boolean,
+    vordruck                           boolean,
+    barzahler                          boolean,
+    lsausdruck                         smallint,
+    baustlslayout                      varchar,
+    baustlskreis                       smallint,
+    baustdruckart                      varchar,
+    ohnelieferschein                   boolean,
+    druckalibi                         boolean,
+    druckcelogo                        boolean,
+    baustelle_app_qrcode_typ           varchar,
+    letztebelieferungwerksnummer       integer,
+    letztebelieferunglsnummer          integer,
+    letztebelieferung                  date,
+    erstebelieferungwerksnummer        integer,
+    erstebelieferunglsnummer           integer,
+    erstebelieferung                   timestamp,
+    leeresfeld                         varchar,
+    interneinfo                        varchar,
+    lsinfo                             varchar,
+    baustellenlatitude                 varchar,
+    baustellenlongitude                varchar,
+    radiusumbaustelleinmeter           integer,
+    baustellewerksnummer               bigint,
+    baustelleaktiv                     boolean,
+    baustellefreigabevon               timestamp,
+    baustellefreigabebis               timestamp,
+    baustelleabgeschlossen             boolean,
+    baustellepopupfenster1wann         varchar,
+    baustellepopupfenster1anzeigetext  varchar,
+    baustellepopupfenster2wann         varchar,
+    baustellepopupfenster2anzeigetext  varchar,
+    baustellesonderleistung1eintragart integer,
+    baustellesonderleistung1nr         varchar,
+    baustellesonderleistung2eintragart integer,
+    baustellesonderleistung2nr         varchar,
+    baustellegeloescht                 boolean,
+    geaendert                          boolean,
+    mutationscode                      integer,
+    mutationsdatum                     date,
+    letzteaenderung                    timestamp,
+    sksbaustelleuebergeben             bigint,
+    baustellenwindowsverzeichnispfad   varchar,
+    objektbetonmenge                   double precision,
+    objektbetonmengeeinheitkurzbez     varchar,
+    objektbeginn                       timestamp,
+    objektende                         timestamp,
+    objektstatus                       integer,
+    objektzugeordnetewerke             varchar,
+    objektbemerkung                    text,
+    baustelleerstellungdatumzeit       timestamp,
+    baustelleerstellungbediener        varchar,
+    baustelleletzteaenderungdatumzeit  timestamp,
+    baustelleletzteaenderungbediener   varchar,
+    externeid                          varchar,
+    constraint p_baust
+        primary key (kundennr, baustnr)
+);
+
+alter table baust
+    owner to postgres;
+
+create index baust_bausmatc
+    on baust (matchcode, kundennr, baustnr);
+
+create index baust_ibaustnr
+    on baust (baustnr, kundennr, matchcode);
+
+create index baust_bausbez
+    on baust (bezeichnung1, kundennr, baustnr);
+
+create index baust_ibausliefer
+    on baust (letztebelieferung, kundennr, baustnr);
+

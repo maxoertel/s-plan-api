@@ -1,0 +1,38 @@
+-- auto-generated definition
+create table formularlayoutlabel
+(
+    layouttyp                         integer not null,
+    layoutnr                          integer not null,
+    layoutlabelnr                     integer not null,
+    layoutlabelid                     integer,
+    layoutlabeloben                   integer,
+    layoutlabellinks                  integer,
+    layoutlabelbreite                 integer,
+    layoutlabelhoehe                  integer,
+    layoutlabeluntenfuerseitenumbruch integer,
+    layoutlabelobenauffolgeseite      integer,
+    layoutlabelabstandvorher          integer,
+    layoutlabelabstandnachher         integer,
+    layoutlabelaufseite               integer,
+    layoutlabelschriftart             varchar,
+    layoutlabelschriftgroesse         integer,
+    layoutlabelfettdruck              boolean,
+    layoutlabelkursivdruck            boolean,
+    layoutlabelalignment              integer,
+    layoutlabelunterstreichen         boolean,
+    layoutlabelalstitelschriftart     varchar,
+    layoutlabelalstitelschriftgroesse integer,
+    layoutlabelalstitelfettdruck      boolean,
+    layoutlabelalstitelkursivdruck    boolean,
+    layoutlabelalstitelalignment      integer,
+    layoutlabelalstitelunterstreichen boolean,
+    layoutlabeldruckbereit            boolean,
+    layoutlabeltext                   text,
+    layoutlabelbild                   bytea,
+    constraint p_formularlayoutlabel
+        primary key (layouttyp, layoutnr, layoutlabelnr)
+);
+
+alter table formularlayoutlabel
+    owner to postgres;
+
