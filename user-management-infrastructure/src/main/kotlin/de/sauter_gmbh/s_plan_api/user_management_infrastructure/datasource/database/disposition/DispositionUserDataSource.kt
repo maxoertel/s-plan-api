@@ -40,7 +40,7 @@ internal class DispositionUserDataSource(
     SELECT benutzer, anrede, titel, vorname, nachname, authentifizierungstyp,
            authentifizierungsbenutzer, erstellungdatumzeit, erstellungsbediener,
            letzteaenderungdatumzeit, letzteaenderungbediener, rolle
-    FROM sauter_strack_benutzer
+    FROM sauter_splan_benutzer
     """
       .trimIndent()
 
@@ -64,7 +64,7 @@ internal class DispositionUserDataSource(
   ) {
     val sql =
       """
-      INSERT INTO sauter_strack_benutzer (
+      INSERT INTO sauter_splan_benutzer (
         benutzer, anrede, titel, vorname, nachname, authentifizierungstyp,
         authentifizierungsbenutzer, rolle, erstellungdatumzeit, erstellungsbediener,
         letzteaenderungdatumzeit, letzteaenderungbediener
@@ -104,7 +104,7 @@ internal class DispositionUserDataSource(
   ): Int {
     val sql =
       """
-      UPDATE sauter_strack_benutzer
+      UPDATE sauter_splan_benutzer
       SET anrede = ?,
           titel = ?,
           vorname = ?,
@@ -134,5 +134,5 @@ internal class DispositionUserDataSource(
   }
 
   override fun delete(id: String): Int =
-    jdbcTemplate.update("DELETE FROM sauter_strack_benutzer WHERE benutzer = ?", id)
+    jdbcTemplate.update("DELETE FROM sauter_splan_benutzer WHERE benutzer = ?", id)
 }

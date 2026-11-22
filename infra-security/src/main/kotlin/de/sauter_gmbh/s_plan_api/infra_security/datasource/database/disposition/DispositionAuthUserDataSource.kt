@@ -22,7 +22,7 @@ internal class DispositionAuthUserDataSource(private val jdbcTemplate: JdbcTempl
       jdbcTemplate.query(
         """
         SELECT benutzer, rolle
-        FROM sauter_strack_benutzer
+        FROM sauter_splan_benutzer
         WHERE authentifizierungstyp = 'auth0' AND authentifizierungsbenutzer = ?
         """
           .trimIndent(),

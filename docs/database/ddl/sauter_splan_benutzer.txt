@@ -1,4 +1,4 @@
-CREATE TABLE sauter_strack_benutzer (
+CREATE TABLE sauter_splan_benutzer (
     benutzer TEXT PRIMARY KEY,
 
     anrede TEXT,
@@ -13,8 +13,9 @@ CREATE TABLE sauter_strack_benutzer (
     erstellungsbediener TEXT NOT NULL,
 
     letzteaenderungdatumzeit TIMESTAMPTZ,
-    letzteaenderungbediener TEXT
+    letzteaenderungbediener TEXT,
+    rolle TEXT
 );
 
-CREATE UNIQUE INDEX ux_benutzer_authentifizierungsdaten
-ON sauter_strack_benutzer (authentifizierungstyp, authentifizierungsbenutzer);
+CREATE UNIQUE INDEX ux_benutzer_splan_authentifizierungsdaten
+ON sauter_splan_benutzer (authentifizierungstyp, authentifizierungsbenutzer);
