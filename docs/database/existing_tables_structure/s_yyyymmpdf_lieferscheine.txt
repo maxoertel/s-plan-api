@@ -1,0 +1,25 @@
+-- auto-generated definition
+create table s_20260202pdf_lieferscheine
+(
+    werksnummer                 unknown,
+    datum                       unknown,
+    zeit                        unknown,
+    lsnummer                    unknown,
+    lskreis                     unknown,
+    erstellungdatum             unknown,
+    erstellungzeit              unknown,
+    ablagedatum                 unknown,
+    ablagezeit                  unknown,
+    lsnummerfremd               unknown,
+    datenquelle                 unknown,
+    pdf_lieferschein_uebergeben unknown,
+    letzteremailzeitpunkt       unknown,
+    erstellungbediener          unknown,
+    pdflieferschein             unknown,
+    laenge                      unknown,
+    erstellschluessel           unknown,
+    ablageschluessel            unknown,
+    constraint p_s_20260202pdf_lieferscheine
+        primary key ()
+);
+

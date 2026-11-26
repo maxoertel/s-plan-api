@@ -1,0 +1,53 @@
+-- auto-generated definition
+create table lsempfaenger
+(
+    werksnummer                                       bigint  not null,
+    lskreis                                           integer not null,
+    empftyp                                           integer not null,
+    empfnr                                            integer not null,
+    druckart                                          varchar,
+    empfname                                          varchar,
+    lslayout                                          varchar,
+    lslayoutrueckseite                                varchar,
+    lslayoutfest                                      integer,
+    hostname                                          varchar,
+    username                                          varchar,
+    passwort                                          varchar,
+    betreff                                           varchar,
+    port                                              integer,
+    login                                             boolean,
+    kopien                                            integer,
+    hintergrund                                       varchar,
+    drucksollwert                                     boolean,
+    druckistwert                                      boolean,
+    druckztvk                                         boolean,
+    druckrezept                                       boolean,
+    druckwerk                                         boolean,
+    druckwasserkorrektur                              boolean,
+    druckherstellersollwerte                          boolean,
+    druckfeuchteausdruck                              boolean,
+    druckohnelieferschein                             boolean,
+    druckvordruck                                     boolean,
+    druckbarzahler                                    boolean,
+    druckalibi                                        boolean,
+    druckcelogo                                       boolean,
+    lsempfaengerunterschriftgeraeteid                 varchar,
+    dispolieferscheinformulareditorlayoutname         varchar,
+    dispolieferscheinhintergrund                      bytea,
+    dispolieferscheinhintergrunddateiformat           varchar,
+    dispolieferscheinhintergrundgroesse               bigint,
+    appdefaultlieferscheinformulareditorlayoutname    varchar,
+    appdefaultlieferscheinhintergrundpdf              bytea,
+    appdefaultlieferscheinhintergrundgroesse          bigint,
+    applieferscheinergaenzungformulareditorlayoutname varchar,
+    erstellungdatumzeit                               timestamp,
+    erstellungbediener                                varchar,
+    letzteaenderungdatumzeit                          timestamp,
+    letzteaenderungbediener                           varchar,
+    constraint p_lsempfaenger
+        primary key (werksnummer, lskreis, empftyp, empfnr)
+);
+
+alter table lsempfaenger
+    owner to postgres;
+

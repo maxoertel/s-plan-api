@@ -1,0 +1,22 @@
+-- auto-generated definition
+create table formularlayoutkopf
+(
+    layouttyp                       integer not null,
+    layoutnr                        integer not null,
+    layoutname                      varchar,
+    layouthoehe                     integer,
+    layoutbreite                    integer,
+    layouthintergrundbild           bytea,
+    layoutletztesbearbeiteteslayout boolean,
+    layoutlabelabstandartikel       integer,
+    layoutlabelabstandlieferschein  integer,
+    layoutsksuebergeben             bigint,
+    layouterstellungdatumzeit       timestamp,
+    layoutletzteaenderungdatumzeit  timestamp,
+    constraint p_formularlayoutkopf
+        primary key (layouttyp, layoutnr)
+);
+
+alter table formularlayoutkopf
+    owner to postgres;
+

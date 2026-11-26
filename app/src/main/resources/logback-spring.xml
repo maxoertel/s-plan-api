@@ -1,0 +1,60 @@
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+  <springProperty scope="context" name="appName" source="spring.application.name"/>
+  <springProperty scope="context" name="appEnv" source="APP_ENV" defaultValue="unknown"/>
+  <springProperty scope="context" name="lokiEndpoint" source="LOKI_ENDPOINT" defaultValue="http://localhost/disabled"/>
+  <springProperty scope="context" name="lokiUsername" source="LOKI_USERNAME" defaultValue=""/>
+  <springProperty scope="context" name="lokiPassword" source="LOKI_PASSWORD" defaultValue=""/>
+  <springProperty scope="context" name="logPath" source="LOG_PATH" defaultValue="logs"/>
+
+  <springProfile name="!test">
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${logPath}/s-plan-api.log</file>
+      <encoder>
+        <pattern>${FILE_LOG_PATTERN}</pattern>
+        <charset>${FILE_LOG_CHARSET}</charset>
+      </encoder>
+      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>${logPath}/s-plan-api.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+        <maxFileSize>100MB</maxFileSize>
+        <maxHistory>14</maxHistory>
+        <totalSizeCap>5GB</totalSizeCap>
+        <cleanHistoryOnStart>true</cleanHistoryOnStart>
+      </rollingPolicy>
+    </appender>
+
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+      <batchMaxItems>500</batchMaxItems>
+      <batchTimeoutMs>5000</batchTimeoutMs>
+      <http>
+        <url>${lokiEndpoint}</url>
+        <auth>
+          <username>${lokiUsername}</username>
+          <password>${lokiPassword}</password>
+        </auth>
+      </http>
+      <format>
+        <label>
+          <pattern>application=${appName},env=${appEnv},level=%level</pattern>
+        </label>
+        <message>
+          <pattern>%date{ISO8601} [%thread] %-5level %logger{36} - %msg%n%ex</pattern>
+        </message>
+      </format>
+    </appender>
+
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="LOKI"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="test">
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+</configuration>

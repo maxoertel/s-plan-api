@@ -1,0 +1,37 @@
+package de.sauter_gmbh.s_plan_api.delivery_notes_web.dto
+
+import com.fasterxml.jackson.annotation.JsonProperty
+
+internal data class DeliveryNoteDto(
+  @JsonProperty("id") val id: String,
+  @JsonProperty("factory_nr") val factoryNr: Long,
+  @JsonProperty("date") val date: String,
+  @JsonProperty("time") val time: String,
+  @JsonProperty("delivery_note_nr") val deliveryNoteNr: Int,
+  @JsonProperty("delivery_note_nr_external") val deliveryNoteNrExternal: Int?,
+  @JsonProperty("delivery_note_circle") val deliveryNoteCircle: Int?,
+  @JsonProperty("print_type") val printType: String?,
+  @JsonProperty("order_type") val orderType: Int?,
+  @JsonProperty("delivery_date_time") val deliveryDateTime: String?,
+  @JsonProperty("order_nr") val orderNr: Int?,
+  @JsonProperty("load_nr") val loadNr: Int?,
+  @JsonProperty("batch_nr") val batchNr: Int?,
+  @JsonProperty("planned_quantity") val plannedQuantity: Double?,
+  @JsonProperty("actual_quantity") val actualQuantity: Double?,
+  @JsonProperty("load_quantity") val loadQuantity: Double?,
+  @JsonProperty("return_quantity") val returnQuantity: Double?,
+  @JsonProperty("customer") val customer: CustomerDto,
+  @JsonProperty("site") val site: SiteDto,
+  @JsonProperty("vehicle_id") val vehicleId: Long?,
+  @JsonProperty("recipe") val recipe: String?,
+  @JsonProperty("article_nr") val articleNr: String?,
+  @JsonProperty("description") val description: String?,
+  @JsonProperty("status") val status: StatusDto,
+  @JsonProperty("signature") val signature: SignatureDto,
+  @JsonProperty("created_at") val createdAt: String?,
+  @JsonProperty("updated_at") val updatedAt: String?,
+  @JsonProperty("water_correction_unloading") val waterCorrectionUnloading: Float?,
+  @JsonProperty("super_plasticizer_unloading") val superPlasticizerUnloading: Float?,
+  @JsonProperty("waiting_time_minutes") val waitingTimeMinutes: Float?,
+  @JsonProperty("driver_accepted_at") val driverAcceptedAt: Long?,
+)

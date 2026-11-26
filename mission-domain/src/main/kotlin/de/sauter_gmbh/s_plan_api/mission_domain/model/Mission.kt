@@ -1,0 +1,42 @@
+package de.sauter_gmbh.s_plan_api.mission_domain.model
+
+import de.sauter_gmbh.s_plan_api.domain_identity.VehicleId
+import java.time.LocalDate
+
+data class Mission(
+  val id: MissionId,
+  val orderNr: Int,
+  val loadNr: Int,
+  val deliveryNr: Int,
+  val deliveryNrExternal: String?,
+  val date: LocalDate,
+  val orderType: String?,
+  val deliveryType: DeliveryType?,
+  val articleNr: String?,
+  val recipe: String?,
+  val plannedQuantity: String?,
+  val actualQuantity: String?,
+  val loadQuantity: String?,
+  val note1: String?,
+  val note2: String?,
+  val vehicleId: VehicleId?,
+  val vehicleLicensePlate: String?,
+  val driver: String?,
+  val driverNote: String? = null,
+  val driverStartedAt: Long? = null,
+  val driverAcceptedAt: Long? = null,
+  val time: String?,
+  val dispatchTime: String?,
+  val deliveryTime: String?,
+  val nextTime: String?,
+  val factorySummary: FactorySummary,
+  val returnFactorySummary: FactorySummary? = null,
+  val siteSummary: SiteSummary?,
+  val customer: Customer,
+  val status: Status,
+  val signature: Signature,
+  val waterCorrectionUnloading: Float? = null,
+  val superPlasticizerUnloading: Float? = null,
+  val unsignedPreviousMissions: List<UnsignedMissionSummary> = emptyList(),
+  val deliveryNotePdfExists: Boolean = false,
+)
